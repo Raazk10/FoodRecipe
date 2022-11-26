@@ -1,0 +1,25 @@
+:root {
+
+	--color-primary: #483f84;
+	--color-grad-1: #45391d;
+	--color-grad-2: #b13128;
+
+	--color-light-1: #f9f5f3;
+	--color-light-2: #f2efee;
+	--color-light-3: #d3c7c3;
+	--color-dark-1: #615551;
+	--color-dark-2: #918581;
+	--gradient: linear-gradient(to right bottom, var(--color-grad-1), var(--color-grad-2));
+
+	--large--screen: 78.15em;
+	--medium--screen: 61.25em;
+	--small--screen: 37.5em;
+	--smallest-screen: 31.25em;
+
+	--padding: 1rem;
+	--border-radius: 1rem;
+	--border-size: 3px;
+
+	--font-size-large: 2.5rem;
+	--font-size-small: 1.2rem;
+}
