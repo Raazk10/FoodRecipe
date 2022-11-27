@@ -1,0 +1,218 @@
+.button,
+.button--small,
+.button--small:link,
+.button--small:visited {
+	background-image: var(--gradient);
+	border-radius: 10rem;
+	border: none;
+	text-transform: uppercase;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.button:hover,
+.button--small:hover,
+.button--small:link:hover,
+.button--small:visited:hover {
+	transform: scale(1.05);
+}
+
+.button:focus,
+.button--small:focus,
+.button--small:link:focus,
+.button--small:visited:focus {
+	outline: none;
+}
+
+.button> :first-child,
+.button--small> :first-child,
+.button--small:link> :first-child,
+.button--small:visited> :first-child {
+	margin-right: 1rem;
+}
+
+.button {
+	padding: 1.5rem 4rem;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.button svg {
+	height: 2.25rem;
+	width: 2.25rem;
+	fill: currentColor;
+}
+
+.button--small,
+.button--small:link,
+.button--small:visited {
+	font-size: 1.4rem;
+	font-weight: 600;
+	padding: 1.25rem 2.25rem;
+	text-decoration: none;
+}
+
+.button--small svg,
+.button--small:link svg,
+.button--small:visited svg {
+	height: 1.75rem;
+	width: 1.75rem;
+	fill: currentColor;
+}
+
+.button--inline {
+	color: var(--color-primary);
+	font-size: 1.3rem;
+	font-weight: 600;
+	border: none;
+	background-color: var(--color-light-1);
+	padding: 0.8rem 1.2rem;
+	border-radius: 10rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.button--inline svg {
+	height: 1.6rem;
+	width: 1.6rem;
+	fill: currentColor;
+	margin: 0 0.2rem;
+}
+
+.button--inline span {
+	margin: 0 0.4rem;
+}
+
+.button--inline:focus {
+	outline: none;
+}
+
+.button--inline:hover {
+	color: var(--color-grad-2);
+	background-color: var(--color-light-2);
+}
+
+.button--round {
+	background-image: var(--gradient);
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	height: 4.5rem;
+	width: 4.5rem;
+	transition: all 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button--round:hover {
+	transform: scale(1.07);
+}
+
+.button--round:focus {
+	outline: none;
+}
+
+.button--round svg {
+	height: 2.5rem;
+	width: 2.5rem;
+	fill: #fff;
+}
+
+.button--tiny {
+	height: 2rem;
+	width: 2rem;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.button--tiny svg {
+	height: 100%;
+	width: 100%;
+	fill: var(--color-primary);
+	transition: all 0.3s;
+}
+
+.button--tiny:focus {
+	outline: none;
+}
+
+.button--tiny:hover svg {
+	fill: var(--color-grad-2);
+	transform: translateY(-1px);
+}
+
+.button--tiny:active svg {
+	fill: var(--color-grad-2);
+	transform: translateY(0);
+}
+
+.button--tiny:not(:last-child) {
+	margin-right: 0.3rem;
+}
+
+.heading--2 {
+	color: var(--color-primary);
+	font-size: 2rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 2.5rem;
+	text-align: center;
+}
+
+.link:link,
+.link:visited {
+	color: #918581;
+}
+
+.spinner {
+	margin: 5rem auto;
+	text-align: center;
+}
+
+.spinner svg {
+	height: 6rem;
+	width: 6rem;
+	fill: var(--color-primary);
+	animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.message,
+.error {
+	max-width: 40rem;
+	margin: 0 auto;
+	padding: 5rem 4rem;
+	display: flex;
+}
+
+.message svg,
+.error svg {
+	height: 3rem;
+	width: 3rem;
+	fill: var(--color-primary);
+	transform: translateY(-0.3rem);
+}
+
+.message p,
+.error p {
+	margin-left: 1.5rem;
+	font-size: 1.8rem;
+	line-height: 1.5;
+	font-weight: 600;
+}

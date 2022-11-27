@@ -2,4 +2,9 @@
 @import './variable.css';
 @import './base.css';
 
-@import './modules/header.css'
+@import './modules/components.css';
+@import './modules/header.css';
+@import './modules/preview.css';
+@import './modules/recipe.css';
+@import './modules/searchResults.css';
+@import './modules/upload.css';

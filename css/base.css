@@ -8,7 +8,7 @@ body {
 	background-image: var(--gradient);
 	background-size: cover;
 	background-repeat: no-repeat;
-	min-height: calc(100vh -2 * 4vw);
+	min-height: calc(100vh - 2 * 4vw);
 
 }
 
@@ -26,8 +26,10 @@ body {
 	grid-template-columns: 1fr 2fr;
 	grid-template-areas: 'head head'
 		'list recipe';
+}
 
-	@media only screen and (max-width: var(--large--screen)) {
+@media only screen and (max-width: var(--large--screen)) {
+	.container {
 		max-width: 100%;
 		margin: 0;
 		border-radius: 0;

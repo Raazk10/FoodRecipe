@@ -1,0 +1,9 @@
+.recipe {
+	grid-area: recipe;
+	background-color: #5ed333;
+}
+
+.list {
+	grid-area: list;
+	background-color: antiquewhite;
+}
