@@ -47,15 +47,7 @@
 
 }
 
-@media only screen and (max-width: 61.25em) {
-	.search__field {
-		width: auto;
-	}
 
-	.search__field::placeholder {
-		color: var(--color-light-1);
-	}
-}
 
 .search__button {
 	font-weight: 600;
@@ -145,4 +137,19 @@
 .nav__btn--bookmarks:hover+.bookmarks {
 	visibility: visible;
 	opacity: 1;
+}
+
+@media only screen and (max-width: 61.25em) {
+	.search__field {
+		width: auto;
+	}
+
+	.search__field::placeholder {
+		color: var(--color-light-1);
+	}
+
+	.navigation__button span {
+		display: none;
+	}
+
 }

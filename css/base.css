@@ -22,13 +22,15 @@ body {
 	box-shadow: 0 2rem 6rem 0.5rem rgba(--color-dark-1, 0.2);
 
 	display: grid;
-	grid-template-rows: 10rem minmax(100rem, auto);
+	grid-template: "head head" 10rem
+		"list recipe" minmax(100rem, auto) / 1fr 2fr;
+	/* grid-template-rows: 10rem minmax(100rem, auto);
 	grid-template-columns: 1fr 2fr;
 	grid-template-areas: 'head head'
-		'list recipe';
+		'list recipe'; */
 }
 
-@media only screen and (max-width: var(--large--screen)) {
+@media only screen and (max-width: 78.15em) {
 	.container {
 		max-width: 100%;
 		margin: 0;
