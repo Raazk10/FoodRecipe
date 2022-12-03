@@ -18,6 +18,7 @@
 .button--small:link:hover,
 .button--small:visited:hover {
 	transform: scale(1.05);
+	color: var(--color-primary);
 }
 
 .button:focus,

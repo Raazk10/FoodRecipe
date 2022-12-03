@@ -18,7 +18,8 @@ export default function Controller() {
       // 2. Render Recipe
       recipeView.render(model.state.recipe);
     } catch (err) {
-      console.log(err);
+      //recipeView.renderError(err);
+      throw err;
     }
   }
   async function getSearchRecipe() {
@@ -38,7 +39,7 @@ export default function Controller() {
       //4 render pagination button
       pagination.render(model.state.search);
     } catch (err) {
-      recipeView.renderError(err.message);
+      throw err;
     }
   }
   const recipePagination = function (slidePage) {

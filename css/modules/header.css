@@ -9,6 +9,8 @@
 
 .header__logo {
 	color: var(--color-dark-1);
+	font-family: 'Irish Grover', cursive;
+	;
 	font-size: 3rem;
 	margin-left: 4rem;
 	height: 4.6rem;

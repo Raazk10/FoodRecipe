@@ -46,6 +46,7 @@ export async function loadSearchRecipe(query) {
       };
     });
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }

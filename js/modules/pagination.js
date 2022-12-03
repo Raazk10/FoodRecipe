@@ -40,19 +40,28 @@ class Pagination extends ParentView {
   _generateMarkupButton(button, currentPage) {
     return `
     
-		 <button data-goto="${
-       button === "next" ? currentPage + 1 : currentPage - 1
-     }"  class="button--inline pagination__button--${button}">
-		${button === "next" ? `<span>Page ${currentPage + 1}</span>` : ""}
-     <svg class="search__icon">
-		  <use href="./assets/icons.svg#icon-arrow-${
-        button === "next" ? "right" : "left"
-      }"></use>
-		</svg>
-    ${button === "previous" ? `<span>Page ${currentPage - 1}</span>` : ""}
-   
-	 </button>
-		`;
+          <button data-goto="${
+            button === "next" ? currentPage + 1 : currentPage - 1
+          }"  
+                class="button--inline pagination__button--${button}">
+                ${
+                  button === "next"
+                    ? `<span>Page ${currentPage + 1}</span>`
+                    : ""
+                }
+                <svg class="search__icon">
+                  <use href="./assets/icons.svg#icon-arrow-${
+                    button === "next" ? "right" : "left"
+                  }"></use>
+                </svg>
+                ${
+                  button === "previous"
+                    ? `<span>Page ${currentPage - 1}</span>`
+                    : ""
+                }
+              
+          </button>
+          `;
   }
 }
 

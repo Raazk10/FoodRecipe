@@ -12,8 +12,23 @@ export default class ParentView {
   _data;
 
   render(dataitem) {
+    if (!dataitem || (Array.isArray(dataitem) && dataitem.length === 0))
+      return this.renderError();
     this._data = dataitem;
     const htmlMarkup = this._generateHtmlMarkup();
+    this._clear();
+    this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
+  }
+
+  renderError(message = this._errorMessage) {
+    const htmlMarkup = `<div class="error">
+			<div>
+			  <svg>
+			  <use href="./assets/icons.svg_icon-alert-triangle"></use>
+			  </svg>
+			</div>
+			<p>${message}</p>
+	</div>`;
     this._clear();
     this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
   }
@@ -24,25 +39,12 @@ export default class ParentView {
 
   renderSpinner() {
     const htmlMarkup = `
-	<div class="spinner">
-	  <svg>
-	  <use href="./assets/icons.svg#icon-loader"></use>
-	  </svg>
-	</div>
- `;
-    this._clear();
-    this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
-  }
-
-  renderError(message = this._errorMessage) {
-    const htmlMarkup = `<div class="error">
-  <div>
-	 <svg>
-		<use href="./assets/icons.svg_icon-alert-triangle"></use>
-	 </svg>
-  </div>
-  <p>${message}</p>
-</div>`;
+    <div class="spinner">
+          <svg>
+          <use href="./assets/icons.svg#icon-loader"></use>
+          </svg>
+    </div>
+          `;
     this._clear();
     this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
   }
