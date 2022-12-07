@@ -1,19 +1,41 @@
 import ParentView from "./parentView.js";
+/**
+ * Render the received object to the DOM
+ *
+ * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
+ *
+ * @this {Object} View instance
+ */
 
 class RecipeView extends ParentView {
-  _mainElement = document.querySelector(".recipe");
+  mainElement = document.querySelector(".recipe");
+  /** 
+	* this method  listens for events(addeventListener)
+	
+	* loop over the array of  differnet event 
 
+	* array contain haschange and load event
+   * 
+	* calls the function handler as soon as event happens
+   * @param {function} handler 
+   */
   addRecipeEventHandler(handler) {
+    // 1st iteration haschange and 2nd iteration load
     ["hashchange", "load"].forEach((e) => window.addEventListener(e, handler));
   }
 
-  _generateHtmlMarkup() {
+  /**
+   * this method returns the html markuUp for the recipeView
+   *
+   *
+   */
+  generateHtmlMarkup() {
     return ` 
 				<figure class="recipe__figure">
-				<img src="${this._data.image}" alt="${this._data.title}" 
+				<img src="${this.data.image}" alt="${this.data.title}" 
 			class="recipe__image" />
 				<h1 class="recipe__title">
-				<span>${this._data.title}</span>
+				<span>${this.data.title}</span>
 				</h1>
 			</figure>
 
@@ -23,7 +45,7 @@ class RecipeView extends ParentView {
 				<use href="./assets/icons.svg#icon-clock"></use>
 			</svg>
 			<span class="recipe__info-data recipe__info-data--minutes">${
-        this._data.cookingTime
+        this.data.cookingTime
       }</span>
 			<span class="recipe__info-text">minutes</span>
 			</div>
@@ -32,7 +54,7 @@ class RecipeView extends ParentView {
 				<use href="./assets/icons.svg#icon-users"></use>
 			</svg>
 			<span class="recipe__info-data recipe__info-data--people">${
-        this._data.servings
+        this.data.servings
       }</span>
 			<span class="recipe__info-text">servings</span>
 
@@ -51,9 +73,7 @@ class RecipeView extends ParentView {
 		</div>
 
 			<div class="recipe__user-generated">
-			<svg>
-				<use href="./assets/icons.svg#icon-user"></use>
-			</svg>
+			
 			</div>
 			<button class="button--round">
 			<svg class="">
@@ -65,7 +85,8 @@ class RecipeView extends ParentView {
 		<div class="recipe__ingredients">
 			<h2 class="heading--2">Recipe ingredients</h2>
 			<ul class="recipe__ingredient-list">
-			${this._data.ingredients.map(this._generateIngredientHtmlMarkup).join("")}
+			
+			${this.data.ingredients.map(this.generateIngredientHtmlMarkup).join("")} 
 			</div>
 		
 
@@ -73,10 +94,10 @@ class RecipeView extends ParentView {
 			<h2 class="heading--2">How to cook it</h2>
 			<p class="recipe__directions-text">
 			This recipe was carefully designed and tested by
-			<span class="recipe__publisher">${this._data.publisher}</span>. Please check out
+			<span class="recipe__publisher">${this.data.publisher}</span>. Please check out
 			directions at their website.
 			</p>
-			<a class="button--small recipe__button" href="${this._data.sourceUrl}"
+			<a class="button--small recipe__button" href="${this.data.sourceUrl}"
 			target="_blank">
 			<span>Directions</span>
 			<svg class="search__icon">
@@ -89,8 +110,13 @@ class RecipeView extends ParentView {
 	 
 `;
   }
-
-  _generateIngredientHtmlMarkup(ingr) {
+  /**
+   * This function will give the ingredients number
+   *
+   * @param {number} ingr // recieves the ingredient
+   * @returns htmlmarkup
+   */
+  generateIngredientHtmlMarkup(ingr) {
     return `
 <li class="recipe__ingredient">
   <svg class="recipe__icon">

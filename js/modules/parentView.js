@@ -1,26 +1,38 @@
 /**
  * Render the received object to the DOM
+ *
  * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
+ *
  * @param {boolean} [render=true] If false, create markup string instead of rendering to the DOM
- * @returns {undefined | string} A markup string is returned if render=false
+ *
  * @this {Object} View instance
- * @author Raj K Thapa
- * @todo Finish implementation
+ *
+ *
  */
-
 export default class ParentView {
-  _data;
+  data;
 
+  /**This method gets the data from state object and stores it into this.data
+   * which calls the generateHtmlMarkup
+   *
+   * @param {string} dataitem
+   *
+   */
   render(dataitem) {
     if (!dataitem || (Array.isArray(dataitem) && dataitem.length === 0))
       return this.renderError();
-    this._data = dataitem;
-    const htmlMarkup = this._generateHtmlMarkup();
-    this._clear();
-    this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
+    this.data = dataitem;
+    const htmlMarkup = this.generateHtmlMarkup();
+    this.clear();
+    // add html to the DOM as a child of the parentElement
+    this.mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
   }
-
-  renderError(message = this._errorMessage) {
+  /**
+   * This method is responsible for displaying error message in the view
+   * if no message is passed then sets the default error message
+   * @param {string} message
+   */
+  renderError(message = this.errorMessage) {
     const htmlMarkup = `<div class="error">
 			<div>
 			  <svg>
@@ -29,14 +41,20 @@ export default class ParentView {
 			</div>
 			<p>${message}</p>
 	</div>`;
-    this._clear();
-    this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
+    this.clear();
+    // render the html to the page
+    this.mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
   }
-
-  _clear() {
-    this._mainElement.innerHTML = "";
+  /**
+   * clears the parent element
+   */
+  clear() {
+    this.mainElement.innerHTML = "";
   }
-
+  /**
+   * This method creates the spinner loader before anything is loaded on the screen
+   *
+   */
   renderSpinner() {
     const htmlMarkup = `
     <div class="spinner">
@@ -45,7 +63,7 @@ export default class ParentView {
           </svg>
     </div>
           `;
-    this._clear();
-    this._mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
+    this.clear();
+    this.mainElement.insertAdjacentHTML("afterbegin", htmlMarkup);
   }
 }

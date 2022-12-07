@@ -1,43 +1,77 @@
 import ParentView from "./parentView.js";
 
-class Pagination extends ParentView {
-  _mainElement = document.querySelector(".pagination");
+/**
+ *Render the received object to the DOM
+ *
+ * @this {Object} View instance
+ */
 
+class Pagination extends ParentView {
+  // query selector
+  mainElement = document.querySelector(".pagination");
+
+  /**
+   * This method handle the eventlistener
+   *
+   *
+   */
   addPageHandlerClick(handler) {
-    this._mainElement.addEventListener("click", function (e) {
+    this.mainElement.addEventListener("click", function (e) {
+      // traverses the element and its parents until it finds a node that matches the specified CSS selector.
       const button = e.target.closest(".button--inline");
+      // if there is no button returns immedietly
       if (!button) return;
-      const slidePage = +button.dataset.goto;
-      handler(slidePage);
+      // gets current page button
+      const goToPage = parseInt(button.dataset.goto);
+      console.log(goToPage);
+      handler(goToPage);
     });
   }
 
-  _generateHtmlMarkup() {
-    const currentPage = this._data.page;
-    const numberPages = Math.ceil(
-      this._data.results.length / this._data.resultsPerPage
+  /**
+   * This method calulates which button to display accordingly when user clicks
+   * and how many pages to display
+   *
+   * @returns {number}
+   */
+  generateHtmlMarkup() {
+    // calculates how many pages are there
+    const currentPage = this.data.page;
+    const numberOfPages = Math.ceil(
+      this.data.results.length / this.data.resultsPerPage
     );
 
     // Page 1, and there are other pages
 
-    if (currentPage === 1 && numberPages > 1) {
-      return this._generateMarkupButton("next", currentPage);
+    if (currentPage === 1 && numberOfPages > 1) {
+      // return page 1 and others
+      return this.generateMarkupButton("next", currentPage);
     }
 
     //Last page
-    if (currentPage === numberPages && numberPages > 1) {
-      return this._generateMarkupButton("previous", currentPage);
+    if (currentPage === numberOfPages && numberOfPages > 1) {
+      // return last page
+      return this.generateMarkupButton("previous", currentPage);
     }
     // Other page
-    if (currentPage < numberPages) {
-      return `${this._generateMarkupButton("previous", currentPage)}
-      ${this._generateMarkupButton("next", currentPage)}
+    if (currentPage < numberOfPages) {
+      // return other page
+      return `${this.generateMarkupButton("previous", currentPage)}
+      ${this.generateMarkupButton("next", currentPage)}
       `;
     }
     // Page 1 and if there are NO other pages
+    // return only one page
     return "";
   }
-  _generateMarkupButton(button, currentPage) {
+  /**
+   * This method display the button according to the page we are in
+   *
+   * @param {string} button
+   * @param {number} currentPage
+   * @returns {string} htmlMarkupButton
+   */
+  generateMarkupButton(button, currentPage) {
     return `
     
           <button data-goto="${
