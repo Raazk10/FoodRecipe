@@ -36,7 +36,7 @@
 }
 
 
-.copyright .twitter-link:link,
-.copyright .twitter-link:visited {
+.copyright__twitter--link:link,
+.copyright__twitter--link:visited {
 	color: var(--color-dark-2);
 }
