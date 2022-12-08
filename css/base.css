@@ -25,10 +25,7 @@ body {
 	display: grid;
 	grid-template: "head head" 10rem
 		"list recipe" minmax(100rem, auto) / 1fr 2fr;
-	/* grid-template-rows: 10rem minmax(100rem, auto);
-	grid-template-columns: 1fr 2fr;
-	grid-template-areas: 'head head'
-		'list recipe'; */
+
 }
 
 @media only screen and (max-width: 78.15em) {
