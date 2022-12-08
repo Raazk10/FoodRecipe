@@ -3,21 +3,20 @@ import ParentView from "./parentView.js";
  * Render the received object to the DOM
  *
  * @param {Object | Object[]} data The data to be rendered (e.g. recipe)
- *
  * @this {Object} View instance
  */
 
 class RecipeView extends ParentView {
   mainElement = document.querySelector(".recipe");
-  /** 
-	* this method  listens for events(addeventListener)
-	
-	* loop over the array of  differnet event 
-
-	* array contain haschange and load event
-   * 
-	* calls the function handler as soon as event happens
-   * @param {function} handler 
+  /**
+   * this method  listens for events(addeventListener)
+   *
+   * loop over the array of  differnet event
+   *
+   * array contain haschange and load event
+   *
+   * calls the function handler as soon as event happens
+   * @param {function} handler
    */
   addRecipeEventHandler(handler) {
     // 1st iteration haschange and 2nd iteration load
